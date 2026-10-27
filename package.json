@@ -1,0 +1,53 @@
+{
+	"name": "RiskManagement",
+	"version": "1.0.0",
+	"type": "module",
+	"dependencies": {
+		"@cap-js/hana": "^3",
+		"@sap/cds": "^10",
+		"@sap-cloud-sdk/connectivity": "^4",
+		"@sap-cloud-sdk/http-client": "^4",
+		"@sap-cloud-sdk/resilience": "^4"
+	},
+	"devDependencies": {
+		"@cap-js/sqlite": "^3",
+		"cds-plugin-ui5": "^0.17.0",
+		"@sap/dev-cap-tools": "^1.31.0"
+	},
+	"scripts": {
+		"start": "cds-serve",
+		"watch-risk-management": "cds watch --open riskmanagement/index.html?sap-ui-xx-viewCache=false --livereload false"
+	},
+	"private": true,
+	"cds": {
+		"requires": {
+			"BusinessPartnerA2X": {
+				"kind": "odata-v2",
+				"model": "srv/external/BusinessPartnerA2X",
+				"[production]": {
+					"credentials": {
+						"path": "s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER"
+					}
+				},
+				"csrf": true,
+				"csrfInBatch": true
+			}
+		},
+		"auth": {
+			"scopes": {
+				"RiskViewer": {
+					"grant": "READ"
+				},
+				"RiskManager": {
+					"grant": "*"
+				}
+			}
+		}
+	},
+	"workspaces": [
+		"app/*"
+	],
+	"sapux": [
+		"app/risk-management"
+	]
+}
