@@ -1,0 +1,16 @@
+specVersion: "4.0"
+metadata:
+  name: riskmanagement
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: ui5-task-zipper
+      afterTask: generateCachebusterInfo
+      configuration:
+        archiveName: riskmanagement
+        additionalFiles:
+          - xs-app.json

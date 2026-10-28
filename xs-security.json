@@ -1,0 +1,30 @@
+{
+  "xsappname": "RiskManagement",
+  "tenant-mode": "shared",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.RiskViewer",
+      "description": "View Risk Management Data"
+    },
+    {
+      "name": "$XSAPPNAME.RiskManager",
+      "description": "Manage Risk Management Data"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "RiskViewer",
+      "description": "Read-only access to risks",
+      "scope-references": [
+        "$XSAPPNAME.RiskViewer"
+      ]
+    },
+    {
+      "name": "RiskManager",
+      "description": "Full administrative access to risks",
+      "scope-references": [
+        "$XSAPPNAME.RiskManager"
+      ]
+    }
+  ]
+}

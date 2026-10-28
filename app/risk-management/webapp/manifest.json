@@ -2,6 +2,19 @@
   "_version": "1.89.0",
   "sap.app": {
     "id": "riskmanagement",
+    "crossNavigation": {
+      "inbounds": {
+        "riskmanagement-display": {
+          "semanticObject": "riskmanagement",
+          "action": "display",
+          "title": "Risk Management",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    },
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -142,5 +155,8 @@
     "app": {
       "enableLazyLoading": true
     }
+  },
+  "sap.cloud": {
+    "service": "riskmanagement.service"
   }
 }

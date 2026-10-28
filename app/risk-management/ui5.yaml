@@ -26,8 +26,16 @@ server:
       configuration:
         flp:
           theme: sap_horizon
+          
 builder:
   resources:
-    excludes:
+    excludes: 
       - /test/**
       - /localService/**
+  customTasks:
+    - name: ui5-task-zipper
+      afterTask: generateResourcesJson
+      configuration:
+        archiveName: riskmanagement # <--- MUST MATCH mta.yaml EXACTLY
+        additionalFiles:
+          - xs-app.json
